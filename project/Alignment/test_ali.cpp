@@ -81,7 +81,6 @@ for (int i = 0; i < 2; i++)
         ASSERT_EQ(elements2[i][j].value, element_res[i][j].value);
 }
 
-}
 
 int main(int argc, char** argv) {
   // The following line must be executed to initialize Google Mock
