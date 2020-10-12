@@ -24,7 +24,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 # query_info
 add_executable(test_ali.out project/Alignment/test_ali.cpp)
-target_link_libraries(test_query_info.out url_parse_std_lib)
+target_link_libraries(test_ali.out url_parse_std_lib)
 # links gtest
 target_link_libraries(test_ali.out ${GTEST_LIBRARIES})
 target_link_libraries(test_ali.out pthread)
