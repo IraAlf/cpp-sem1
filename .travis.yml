@@ -27,7 +27,7 @@ install:
     - cd -
     
 before_script:
-    - cd project/String
+    - cd project/Alignment
     - clang-format -i -style=Google *.h *.cpp *.c
     - cd -
     - cd project/QueryInfo
