@@ -79,6 +79,10 @@ struct element **element_res = alignment(elements, 2, 4);
 for (int i = 0; i < 2; i++)
     for (int j = 0; j < 4; j++)
         ASSERT_EQ(elements2[i][j].value, element_res[i][j].value);
+
+ free(elements);
+    free(elements2);
+    free(element_res);
 }
 
 
