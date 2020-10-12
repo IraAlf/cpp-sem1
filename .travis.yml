@@ -30,9 +30,6 @@ before_script:
     - cd project/Alignment
     - clang-format -i -style=Google *.h *.cpp *.c
     - cd -
-    - cd project/QueryInfo
-    - clang-format -i -style=Google *.h *.cpp *.c
-    - cd -
     - ./linters/run.sh || travis_terminate 1
 
 script:
