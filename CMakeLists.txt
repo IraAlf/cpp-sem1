@@ -29,3 +29,7 @@ target_link_libraries(test_ali.out std_lib)
 target_link_libraries(test_ali.out ${GTEST_LIBRARIES})
 target_link_libraries(test_ali.out pthread)
 
+
+enable_testing()
+add_test(NAME ali_test COMMAND test_ali.out)
+
