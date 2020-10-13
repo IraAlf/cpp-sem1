@@ -23,19 +23,8 @@ find_package(GTest REQUIRED)
 # adds the gtest include directory
 include_directories(${GTEST_INCLUDE_DIRS})
 
-# query_info
+
 add_executable(test_ali.out project/Alignment/test_ali.cpp)
 target_link_libraries(test_ali.out std_lib)
-# links gtest
 target_link_libraries(test_ali.out ${GTEST_LIBRARIES})
 target_link_libraries(test_ali.out pthread)
-
-if (BUILD_COVERAGE)                                                    # Если активна опция сборки с покрытием
-  set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)    # Установка значения переменной ENABLE_COVERAGE
-  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")   # Дополнение возможных местоположений конфигурационных cmake файлов
-  find_package(codecov)   
-  add_coverage(test_ali.out)
-
-  list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")   # Удаление файлов с тестами из анализа
-  coverage_evaluate()                                                   # Вызов анализатора
-endif ()
