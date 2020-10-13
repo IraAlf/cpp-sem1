@@ -6,7 +6,46 @@ extern "C" {
 }
 
 
-TEST(Alignment, first) {
+TEST(Alignment, negative) {
+struct element **elements = (struct element**)malloc(2 * sizeof (struct element*));
+elements[0] = (struct element*)malloc(2 * sizeof (struct element));
+elements[1] = (struct element*)malloc(4 * sizeof (struct element));
+
+struct element el1;
+el1.value = 1;
+el1.ptr = elements[0];
+elements[0][0] = el1;
+
+el1.value = 2;
+el1.ptr = NULL;
+elements[0][1] = el1;
+
+el1.value = 1;
+el1.ptr = elements[1];
+elements[1][0] = el1;
+
+el1.value = 2;
+el1.ptr = elements[0] + 1;
+elements[1][1] = el1;
+
+el1.value = 3;
+el1.ptr = elements[0] + 2;
+elements[1][2] = el1;
+
+el1.value = 4;
+el1.ptr = NULL;
+elements[1][3] = el1;
+
+
+struct element **element_res = alignment(elements, 4, 2);
+ASSERT_EQ(NULL, element_res);
+for (int i = 0; i < 2; i++) 
+    free(elements[i]);
+free(elements);
+}
+
+
+TEST(Alignment, positive) {
 struct element **elements = (struct element**)malloc(2 * sizeof (struct element*));
 elements[0] = (struct element*)malloc(2 * sizeof (struct element));
 elements[1] = (struct element*)malloc(4 * sizeof (struct element));
@@ -87,6 +126,7 @@ for (int i = 0; i < 2; i++)
             free(elements);
             free(elements2);
 }
+
 
 
 int main(int argc, char** argv) {
