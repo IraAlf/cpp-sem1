@@ -8,10 +8,9 @@
 
 struct element **alignment(struct element **array, int len, int max_len)
 {
-    int count = 0;
     for(int i = 0; i < len; i++)
     {
-        count = 1;
+        int count = 1;
         for (struct element *pcur = *(array + i); pcur->ptr != NULL; pcur++) {
             count++;
         }
