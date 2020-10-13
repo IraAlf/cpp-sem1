@@ -36,5 +36,5 @@ script:
     - cmake .
     - make || travis_terminate 1
     - valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --leak-resolution=med  --track-origins=yes ./test_ali.out || travis_terminate 1
-    - cd ..
-    - bash <(curl -s https://codecov.io/bash)
+ #   - cd ..
+#    - bash <(curl -s https://codecov.io/bash)
