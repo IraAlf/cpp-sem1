@@ -14,8 +14,8 @@ include_directories(project/tests)
 
 enable_testing()
 
-add_library(findmaxlib STATIC ${PROJECT_SOURCE_DIR}/project/src/findmax.c)
-add_library(findmaxparalellib SHARED ${PROJECT_SOURCE_DIR}/project/src/findmaxparalel.c)
+add_library(findmaxlib STATIC ${PROJECT_SOURCE_DIR}/project/src/find_max.c)
+add_library(findmaxparalellib SHARED ${PROJECT_SOURCE_DIR}/project/src/find_max_paralel.c)
 
 
 
