@@ -38,8 +38,9 @@ char* max_word_in_file_mp(char *filename) {
         if (pid[i] == 0) {
             close(fd[0]);
             char *res;
-            res = find_max_word(job_array[i]->start, job_array[i]->size);
-            if (res) {
+            void *temp = find_max_word(job_array[i]->start, job_array[i]->size);
+            if (temp) {
+                res = temp;
                 res = realloc(res, strlen(res) + 1);
                 strcat(res, " ");
                 int len = strlen(res);
