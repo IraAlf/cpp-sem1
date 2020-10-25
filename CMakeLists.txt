@@ -25,9 +25,9 @@ find_package(Threads REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 
-add_executable(tests project/tests/test.cpp)
-set_target_properties(tests PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
-target_link_libraries(tests ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} findmaxlib findmaxparalellib)
+add_executable(tests.out project/tests/test.cpp)
+set_target_properties(tests.out PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+target_link_libraries(tests.out ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} findmaxlib findmaxparalellib)
 
 
 
