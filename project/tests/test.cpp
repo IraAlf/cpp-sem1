@@ -28,7 +28,7 @@ struct timespec start = {};
 struct timespec finish = {};
 char *res, *paral_res;
 clock_gettime(CLOCK_MONOTONIC, &start);
-char name[50] = "data/test1.txt";
+char name[50] = "data/1.txt";
 paral_res = max_word_in_file_mp(name);
 clock_gettime(CLOCK_MONOTONIC, &finish);
 double single_proc_time = (finish.tv_sec - start.tv_sec);
