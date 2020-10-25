@@ -28,7 +28,7 @@ install:
     
 before_script:
    - cd project/src
-   - clang-format -i -style=Google *.h *.cpp *.c
+   - clang-format -i -style=Google *.c
    - cd -
    - ./linters/run.sh || travis_terminate 1
 
