@@ -10,15 +10,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -std=c++0x -Wall -Wextra -Werror --pedanti
 
 include_directories(project/headers)
 
+include_directories(project/tests)
+
 enable_testing()
 
 add_library(findmaxlib STATIC ${PROJECT_SOURCE_DIR}/project/src/findmax.c)
 add_library(findmaxparalellib SHARED ${PROJECT_SOURCE_DIR}/project/src/findmaxparalel.c)
-
-add_subdirectory(project/tests)
-
-
-
 
 
 
