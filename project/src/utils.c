@@ -91,7 +91,9 @@ char *find_max_word(const char *str, size_t strsize) {
         {
             if (current_len > max_len) {
                 max_len = current_len;
-                max_word = realloc(max_word, max_len );
+                void *tmp = realloc(max_word, max_len );
+                if (tmp != NULL)
+                    max_word = tmp;
                 strcpy(max_word, current_word);
                 current_len = 0;
                 current_word = realloc(current_word, 1);
@@ -106,7 +108,9 @@ char *find_max_word(const char *str, size_t strsize) {
     }
     if (current_len > max_len) {
         max_len = current_len;
-        max_word = realloc(max_word, max_len);
+        void *tmp = realloc(max_word, max_len);
+        if (tmp != NULL)
+            max_word = tmp;
         strcpy(max_word, current_word);
     }
     char *word = (char *)calloc(max_len, max_len * sizeof(char));
