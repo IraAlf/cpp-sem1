@@ -20,7 +20,6 @@ job_conf **split_memory(char *str, size_t str_length, size_t num_of_proc) {
     char *prev_start = str;
     for (size_t i = 0; i < num_of_proc; i++)     {
         char *start = str + str_length / num_of_proc * i;
-        size_t offset = 0;
         while(*start != ' ' && *start != '\0' && i != 0) {
             start++;
             offset++;
@@ -112,6 +111,7 @@ char *find_max_word(const char *str, size_t strsize) {
     }
     char *word = (char *)calloc(max_len, max_len * sizeof(char));
     strcpy(word, max_word);
+    free(max_word);
     return word;
 }
 
