@@ -10,9 +10,9 @@
 #include <unistd.h>
 
 extern "C" {
-#include "find_max.h"
-#include "finding_max_paral.h"
-#include "utils.h"
+#include "../headers/find_max.h"
+#include "../headers/finding_max_paral.h"
+#include "../headers/utils.h"
 }
 
 
