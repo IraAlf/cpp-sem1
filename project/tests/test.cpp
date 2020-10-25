@@ -33,7 +33,7 @@ clock_gettime(CLOCK_MONOTONIC, &finish);
 double single_proc_time = (finish.tv_sec - start.tv_sec);
 single_proc_time += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
 clock_gettime(CLOCK_MONOTONIC, &start);
-res = check_convo_mood_mp("/builds/naysudes/howeworks-technpark/project/tests/data/test1.txt");
+res = max_word_in_file("/builds/naysudes/howeworks-technpark/project/tests/data/test1.txt");
 clock_gettime(CLOCK_MONOTONIC, &finish);
 EXPECT_STR_EQ(paral_res, res);
 double multy_proc_time = (finish.tv_sec - start.tv_sec);
