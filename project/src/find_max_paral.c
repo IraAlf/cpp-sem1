@@ -48,6 +48,7 @@ char* max_word_in_file_mp(char *filename) {
             }
             else
                 return (void *)0;
+            free(res);
         }
     }
     for (int i = 0; i < num_of_proc; i++) {
