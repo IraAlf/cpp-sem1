@@ -15,7 +15,7 @@ include_directories(project/tests)
 enable_testing()
 
 add_library(findmaxlib STATIC ${PROJECT_SOURCE_DIR}/project/src/find_max.c)
-add_library(findmaxparalellib SHARED ${PROJECT_SOURCE_DIR}/project/src/find_max_paralel.c)
+add_library(findmaxparalellib SHARED ${PROJECT_SOURCE_DIR}/project/src/find_max_paral.c)
 
 
 
@@ -25,7 +25,7 @@ find_package(Threads REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 
-add_executable(tests project/tests/tests.cpp)
+add_executable(tests project/tests/test.cpp)
 set_target_properties(tests PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 target_link_libraries(tests ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} findmaxlib findmaxparalellib)
 
