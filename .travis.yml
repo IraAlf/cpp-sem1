@@ -27,7 +27,7 @@ install:
     - cd -
     
 before_script:
-   - cd project/Alignment
+   - cd project/src
    - clang-format -i -style=Google *.h *.cpp *.c
    - cd -
    - ./linters/run.sh || travis_terminate 1
