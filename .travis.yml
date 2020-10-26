@@ -26,11 +26,11 @@ install:
     - sudo cp *.a /usr/lib
     - cd -
     
-# before_script:
-#    - cd project/src
-#    - clang-format -i -style=Google *.c
-#    - cd -
-#    - ./linters/run.sh || travis_terminate 1
+before_script:
+   - cd project/src
+   - clang-format -i -style=Google *.c
+   - cd -
+   - ./linters/run.sh || travis_terminate 1
 
 script:
     - cmake .
