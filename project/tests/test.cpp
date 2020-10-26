@@ -23,6 +23,11 @@ EXPECT_STREQ(find_max_word(test_buf, 14), "alferova");
 }
 
 
+TEST(Find_max_paral, test1) {
+char name[50] = "project/tests/data/3.txt";
+EXPECT_STREQ(max_word_in_file_mp(name), "irina");
+}
+
 TEST(Stress_tests, test_1) {
 struct timespec start = {};
 struct timespec finish = {};
