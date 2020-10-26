@@ -12,18 +12,18 @@ env:
     - CODECOV_TOKEN="f710d9ab-05cd-4a6f-8307-08f7e7ca356b"
 
 install:
-    - sudo apt-get update
-    - sudo apt-get install valgrind
-    - sudo apt-get install clang-format
-    - sudo apt-get install lcov
-    - sudo apt-get install libstdc++6
-    - sudo apt-get install cmake
+    - apt-get update
+    - apt-get install valgrind
+    - apt-get install clang-format
+    - apt-get install lcov
+    - apt-get install libstdc++6
+    - apt-get install cmake
     # Google tests
-    - sudo apt-get install libgtest-dev
+    - apt-get install libgtest-dev
     - cd /usr/src/gtest
-    - sudo cmake .
-    - sudo make
-    - sudo cp *.a /usr/lib
+    - cmake .
+    - make
+    - cp *.a /usr/lib
     - cd -
     
 before_script:
