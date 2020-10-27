@@ -10,16 +10,16 @@
 #include <unistd.h>
 
 extern "C" {
-#include "../headers/find_max.h"
-#include "../headers/finding_max_paral.h"
-#include "../headers/utils.h"
+#include "find_max.h"
+#include "finding_max_paral.h"
+#include "utils.h"
 }
 
 
 
 TEST(Find_max, test1) {
-char test_buf[50] = "irina alferova";
-EXPECT_STREQ(find_max_word(test_buf, 14), "alferova");
+char *test_buf = "irina alferova";
+EXPECT_STR_EQ(find_max_word(test_buf), "alferova");
 }
 
 
@@ -28,15 +28,13 @@ struct timespec start = {};
 struct timespec finish = {};
 char *res, *paral_res;
 clock_gettime(CLOCK_MONOTONIC, &start);
-char name[50] = "project/tests/data/1.txt";
-paral_res = max_word_in_file_mp(name);
+paral_res = max_word_in_file_mp("project/tests/data/test1.txt");
 clock_gettime(CLOCK_MONOTONIC, &finish);
 double single_proc_time = (finish.tv_sec - start.tv_sec);
 single_proc_time += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
 clock_gettime(CLOCK_MONOTONIC, &start);
-res = max_word_in_file(name);
+paral_res = check_convo_mood_mp("/builds/naysudes/howeworks-technpark/project/tests/data/test1.txt");
 clock_gettime(CLOCK_MONOTONIC, &finish);
-EXPECT_STREQ(paral_res, res);
 double multy_proc_time = (finish.tv_sec - start.tv_sec);
 multy_proc_time += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
 std::cout << '\n' << '\n' << "Multy proc time " << multy_proc_time;
