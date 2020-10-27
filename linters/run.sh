@@ -16,6 +16,6 @@ fi
 ${CPPCHECK} project --enable=all --error-exitcode=1 -I project/src -I project/src --suppress=missingIncludeSystem # --check-config
 
 print_header "RUN cpplint.py"
-python2.7 ./linters/cpplint/cpplint.py --extensions=c,cpp project/src
+python3 ./linters/cpplint/cpplint.py --extensions=c,cpp project/src
 
 print_header "SUCCESS"

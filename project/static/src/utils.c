@@ -2,7 +2,8 @@
 // Created by irinina on 25.10.2020.
 //
 
-#include "utils.h"
+#include "../headers/find_max.h"
+#include "../headers/utils.h"
 
 
 job_conf **split_memory(char *str, size_t str_length, size_t num_of_proc) {
@@ -10,9 +11,11 @@ job_conf **split_memory(char *str, size_t str_length, size_t num_of_proc) {
     if (!job_array) {
         return NULL;
     }
-    for (size_t i = 0; i < num_of_proc; i++) {
+    for (size_t i = 0; i < num_of_proc; ++i) {
         job_array[i] = (job_conf *) malloc(sizeof(job_conf));
         if (!job_array[i]) {
+            for (int k = 0; k < i; ++i)
+                free(job_array[k]);
             free(job_array);
             return NULL;
         }

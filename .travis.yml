@@ -1,4 +1,4 @@
-dist:     xenial
+dist:     trusty
 sudo:     required
 
 language: c
@@ -21,9 +21,9 @@ install:
     # Google tests
     - sudo apt-get install libgtest-dev
     - cd /usr/src/gtest
-    - sudo cmake .
-    - sudo make
-    - sudo cp *.a /usr/lib
+    - cmake .
+    - make
+    - cp *.a /usr/lib
     - cd -
     
 # before_script:

@@ -2,8 +2,8 @@
 // Created by irinina on 25.10.2020.
 //
 
-#include "utils.h"
-
+#include "../headers/utils.h"
+#include "../headers/find_max.h"
 
 job_conf **split_memory(char *str, size_t str_length, size_t num_of_proc) {
     job_conf **job_array = (job_conf **) malloc(sizeof(job_conf *) * num_of_proc);
